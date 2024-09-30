@@ -2,7 +2,6 @@ import React from 'react';
 
 const WeatherForecast = ({ weatherForecast }) => {
     const listWeatherForecast = weatherForecast.list;
-    console.log("listWeatherForecast", listWeatherForecast);
 
     // Get today's date and set the time to midnight for accurate comparison
     const today = new Date();
@@ -22,30 +21,32 @@ const WeatherForecast = ({ weatherForecast }) => {
     });
 
     const forecastElements = filteredForecasts.map((forecast) => (
-        <div key={forecast.dt} className="flex border-2 border-blue-500">
-            <p className="border-2 border-red-400">{forecast.dt_txt}</p>
-            <p className="border-2 border-red-400">{forecast.weather[0].main}</p>
-            <p className="border-2 border-red-400">{forecast.weather[0].description}</p>
+        <div
+            key={forecast.dt}
+            className="flex flex-col items-center p-4 m-2 bg-white rounded-md shadow-md min-w-[180px]"
+        >
+            <p className="text-md font-semibold">{new Date(forecast.dt_txt).toLocaleDateString("en-US", { weekday: "long" })}</p>
             <img
                 className="w-10 h-10"
                 src={`http://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}
                 alt="weather icon"
             />
-            <p className="border-2 border-red-400">Temperature {forecast.main.temp} °C</p>
-            <p className="border-2 border-red-400">Max {forecast.main.temp_max} °C</p>
-            <p className="border-2 border-red-400">Min {forecast.main.temp_min} °C</p>
-            <p className="border-2 border-red-400">Feels like {forecast.main.feels_like} °C</p>
-            <p className="border-2 border-red-400">
-                Wind {forecast.wind.speed} m/s, direction {forecast.wind.deg}
+            <p className="text-sm font-bold">Temp: {forecast.main.temp} °C</p>
+            <p className="text-xs">
+                Wind: {forecast.wind.speed} m/s
             </p>
-            <p className="border-2 border-red-400">Pressure {forecast.main.pressure} hPa</p>
+            <p className="text-xs">
+                Direction: {forecast.wind.deg}°
+            </p>
         </div>
     ));
 
     return (
-        <div>
-            Weather Forecast
-            {forecastElements}
+        <div className="mt-4">
+            <h2 className="text-xl font-bold mb-2">5 days forecast</h2>
+            <div className="forecast-carousel flex space-x-4 overflow-x-scroll no-scrollbar p-2">
+                {forecastElements}
+            </div>
         </div>
     );
 };

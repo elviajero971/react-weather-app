@@ -1,48 +1,50 @@
 import React from 'react';
+import DayOfTheWeek from './DayOfTheWeek';
+import Wind from './Wind';
+import Pressure from './Pressure';
+import Humidity from './Humidity';
+import DayTime from './DayTime';
+import Temperature from './Temperature';
+import Weather from './Weather';
 
-const CurrentWeather = (currentWeather) => {
-    console.log("currentWeather component data", currentWeather.data)
-
-    const date = currentWeather.data.dt
-    const newDate = new Date(date*1000)
-
-    const weather = currentWeather.data.weather[0].main
-    const weatherDescription = currentWeather.data.weather[0].description
-    const weatherIcon = currentWeather.data.weather[0].icon
-
-    const temp = currentWeather.data.main.temp
-    const tempMax = currentWeather.data.main.temp_max
-    const tempMin = currentWeather.data.main.temp_min
-    const feelsLike = currentWeather.data.main.feels_like
-    const wind = currentWeather.data.wind.speed
-    const windDirection = currentWeather.data.wind.deg
-    const pressure = currentWeather.data.main.pressure
-
-    console.log("newDate", newDate)
-    console.log("weather", weather)
-    console.log("weatherDescription", weatherDescription)
-    console.log("weatherIcon", weatherIcon)
-    console.log("temp", temp)
-    console.log("tempMax", tempMax)
-    console.log("tempMin", tempMin)
-    console.log("feelsLike", feelsLike)
-    console.log("wind", wind)
-    console.log("windDirection", windDirection)
-    console.log("pressure", pressure)
+const CurrentWeather = ({ data }) => {
+    const { dt, weather, main, wind, sys } = data;
 
     return (
-        <div className="flex flex-col border-2 border-blue-500">
-            <p className="border-2 border-red-400">Current Weather</p>
-            <p className="border-2 border-red-400">{newDate.toDateString()}</p>
-            <p className="border-2 border-red-400">{weather}</p>
-            <p className="border-2 border-red-400">{weatherDescription}</p>
-            <img className="w-32 h-32" src={`http://openweathermap.org/img/w/${weatherIcon}.png`} alt="weather icon"/>
-            <p className="border-2 border-red-400">Temperature {temp} °C</p>
-            <p className="border-2 border-red-400">Max {tempMax} °C</p>
-            <p className="border-2 border-red-400">Min {tempMin} °C</p>
-            <p className="border-2 border-red-400">Feels like {feelsLike} °C</p>
-            <p className="border-2 border-red-400">Wind {wind} m/s, direction {windDirection}</p>
-            <p className="border-2 border-red-400">Pressure {pressure} hPa</p>
+        <div className="flex flex-col items-center">
+            {/* Date */}
+            <DayOfTheWeek date={dt} />
+
+            {/* Weather Information */}
+            <Weather
+                temp={main.temp}
+                weatherDescription={weather[0].description}
+                weatherIcon={weather[0].icon}
+            />
+
+            {/* Temperature Information */}
+            <Temperature
+                temp={main.temp}
+                tempMax={main.temp_max}
+                tempMin={main.temp_min}
+                feelsLike={main.feels_like}
+            />
+
+            {/* Wind Component */}
+            <div className="w-full mt-6">
+                <Wind windSpeed={wind.speed} windDirection={wind.deg} />
+            </div>
+
+            {/* Pressure Information */}
+            <div className="mt-4 w-full grid grid-cols-2 gap-4">
+                <Pressure pressure={main.pressure} />
+                <Humidity humidity={main.humidity} />
+            </div>
+
+            {/* Sunrise and Sunset (DayTime) */}
+            <div className="mt-4 w-full">
+                <DayTime sunrise={sys.sunrise} sunset={sys.sunset} />
+            </div>
         </div>
     );
 };

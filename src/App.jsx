@@ -31,7 +31,7 @@ function App() {
     };
 
   return (
-      <div className="flex flex-col w-10/12 h-screen">
+      <div className="flex flex-col bg-blue-200 p-4 max-w-lg mx-auto">
           <Search onSearchChange={handleOnSearchChange}/>
           {currentWeather && <CurrentWeather data={currentWeather} />}
           {weatherForecast && <WeatherForecast weatherForecast={weatherForecast}/>}
