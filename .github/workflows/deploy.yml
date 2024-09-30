@@ -57,7 +57,7 @@ jobs:
           RASPBERRY_PI_PASSWORD: ${{ secrets.RASPBERRY_PI_PASSWORD }}
           RASPBERRY_PI_IP: ${{ secrets.RASPBERRY_PI_IP }}
         run: |
-          sshpass -p $RASPBERRY_PI_PASSWORD scp -o StrictHostKeyChecking=no -r build/* pi@$RASPBERRY_PI_IP:/var/www/html/weather_react_app
+          sshpass -p $RASPBERRY_PI_PASSWORD scp -o StrictHostKeyChecking=no -r dist/* pi@$RASPBERRY_PI_IP:/var/www/html/weather_react_app
 
       - name: Cleanup
         run: rm -rf ~/.ssh
