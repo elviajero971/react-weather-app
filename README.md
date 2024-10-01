@@ -124,16 +124,16 @@ REACT_APP_OPENWEATHER_API_KEY=your-openweather-api-key
 
 3. The application will now be able to fetch weather data based on city searches.
 
-## 🤝 Contributing
+### Project Roadmap
 
-If you'd like to contribute to this project, feel free to fork the repository and submit a pull request. All contributions, feedback, and suggestions are welcome!
-
-### How to Contribute:
-1. Fork the repository.
-2. Create a new feature branch (`git checkout -b feature/your-feature`).
-3. Commit your changes (`git commit -m "Add some feature"`).
-4. Push to the branch (`git push origin feature/your-feature`).
-5. Open a pull request.
+```diff
++ MVP : Search bar creation with the GeoDB API
++ MVP : Display of the current weather with the OpenWeather API
++ MVP : Display of the 4-day weather forecast with the OpenWeather API
+- MVP : Adjust the design with Tailwind CSS
+- FEATURE : Display of the air quality data to the weather display with the OpenWeather API
+- FEATURE : Display of hourly weather forecast for the next 24h with the OpenWeather API
+```
 
 ## 🌐 Live Demo
 
