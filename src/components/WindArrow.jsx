@@ -4,10 +4,11 @@ import React from "react";
 const WindArrow = ({ degree }) => {
     return (
         <div className="relative flex items-center justify-center h-24 w-24">
-            <div
-                className="absolute w-0 h-0 border-l-4 border-l-transparent border-r-4 border-r-transparent border-t-8 border-t-black transform"
-                style={{ transform: `rotate(${degree}deg)` }}
-            ></div>
+            <img
+                src="/icons/arrow.png"
+                className="absolute w-14 h-14 transform"
+
+            />
             <div className="absolute w-full h-full rounded-full border border-gray-300"></div>
             {/* Cardinal directions */}
             <div className="absolute top-1 text-xs">N</div>

@@ -10,6 +10,8 @@ import Weather from './Weather';
 const CurrentWeather = ({ data }) => {
     const { dt, weather, main, wind, sys } = data;
 
+    console.log("data", data);
+
     return (
         <div className="flex flex-col items-center">
             {/* Date */}
@@ -22,16 +24,13 @@ const CurrentWeather = ({ data }) => {
                 weatherIcon={weather[0].icon}
             />
 
-            {/* Temperature Information */}
-            <Temperature
-                temp={main.temp}
-                tempMax={main.temp_max}
-                tempMin={main.temp_min}
-                feelsLike={main.feels_like}
-            />
-
-            {/* Wind Component */}
-            <div className="w-full mt-6">
+            <div className="my-4 w-full grid grid-cols-2 gap-4">
+                <Temperature
+                    temp={main.temp}
+                    tempMax={main.temp_max}
+                    tempMin={main.temp_min}
+                    feelsLike={main.feels_like}
+                />
                 <Wind windSpeed={wind.speed} windDirection={wind.deg} />
             </div>
 

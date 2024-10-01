@@ -1,7 +1,11 @@
 import React from 'react';
+import {getIconPath} from "../utils.js";
+import {roundNumber} from "../utils.js";
 
 const WeatherForecast = ({ weatherForecast }) => {
     const listWeatherForecast = weatherForecast.list;
+
+    console.log("listWeatherForecast", listWeatherForecast);
 
     // Get today's date and set the time to midnight for accurate comparison
     const today = new Date();
@@ -20,24 +24,31 @@ const WeatherForecast = ({ weatherForecast }) => {
         return isAfterToday && isAtNoon;
     });
 
+    // make a function that transform the icon name to the correct path
+
+
     const forecastElements = filteredForecasts.map((forecast) => (
         <div
             key={forecast.dt}
-            className="flex flex-col items-center p-4 m-2 bg-white rounded-md shadow-md min-w-[180px]"
+            className="flex flex-col items-center p-4 m-2 bg-blue-100 text-blue-900 rounded-md shadow-md min-w-[180px]"
         >
             <p className="text-md font-semibold">{new Date(forecast.dt_txt).toLocaleDateString("en-US", { weekday: "long" })}</p>
             <img
                 className="w-10 h-10"
-                src={`http://openweathermap.org/img/w/${forecast.weather[0].icon}.png`}
+                src={getIconPath(forecast.weather[0].icon)}
                 alt="weather icon"
             />
             <p className="text-sm font-bold">Temp: {forecast.main.temp} °C</p>
-            <p className="text-xs">
-                Wind: {forecast.wind.speed} m/s
-            </p>
-            <p className="text-xs">
-                Direction: {forecast.wind.deg}°
-            </p>
+            <div className="flex gap-2">
+                <p className="text-xs">Wind {roundNumber(forecast.wind.speed * 3.6)} km/h</p>
+                <img
+                    className="w-4 h-4 transform"
+                    style={{ transform: `rotate(${forecast.wind.deg}deg)` }}
+                    src="/icons/arrow.png"
+                    alt="wind direction"
+                />
+            </div>
+
         </div>
     ));
 
@@ -47,6 +58,7 @@ const WeatherForecast = ({ weatherForecast }) => {
             <div className="forecast-carousel flex space-x-4 overflow-x-scroll no-scrollbar p-2">
                 {forecastElements}
             </div>
+
         </div>
     );
 };

@@ -39,6 +39,7 @@ const Search = ({onSearchChange}) => {
                 placeholder="Search for a city"
                 debounceTimeout={600}
                 value={search}
+                defaultValue={"Paris, FR"}
                 onChange={handleOnChange}
                 loadOptions={loadOptions}
                 />

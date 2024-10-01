@@ -10,12 +10,12 @@ const DayTime = ({ sunrise, sunset }) => {
 
     return (
         <div className="grid grid-cols-2 gap-4">
-            <div className="p-2 bg-white rounded-md shadow-md text-center">
-                <p className="text-sm text-gray-600">Sunrise</p>
+            <div className="p-2 bg-blue-100 rounded-md shadow-md text-blue-900 text-center">
+                <p className="text-sm">Sunrise</p>
                 <p className="text-xl font-semibold">{sunriseTime}</p>
             </div>
-            <div className="p-2 bg-white rounded-md shadow-md text-center">
-                <p className="text-sm text-gray-600">Sunset</p>
+            <div className="p-2 bg-blue-100 rounded-md shadow-md text-blue-900 text-center">
+                <p className="text-sm">Sunset</p>
                 <p className="text-xl font-semibold">{sunsetTime}</p>
             </div>
         </div>
