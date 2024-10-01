@@ -133,6 +133,7 @@ REACT_APP_OPENWEATHER_API_KEY=your-openweather-api-key
 - MVP : Adjust the design with Tailwind CSS
 - FEATURE : Display of the air quality data to the weather display with the OpenWeather API
 - FEATURE : Display of hourly weather forecast for the next 24h with the OpenWeather API
+- FEATURE : Display of a background image according to the weather
 ```
 
 ## 🌐 Live Demo
