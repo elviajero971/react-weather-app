@@ -1,11 +1,12 @@
 import React from "react";
+import windIcon from "../assets/icons/arrow.png";
 
 // Arrow component that accepts a degree for rotation
 const WindArrow = ({ degree }) => {
     return (
         <div className="relative flex items-center justify-center h-24 w-24">
             <img
-                src="/src/assets/icons/arrow.png"
+                src={windIcon}
                 className="absolute w-14 h-14 transform"
                 style={{ transform: `rotate(${degree}deg)` }}
 

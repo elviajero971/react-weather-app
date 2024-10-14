@@ -1,6 +1,7 @@
 import React from 'react';
 import {getIconPath} from "../utils.js";
 import {roundNumber} from "../utils.js";
+import windIcon from "../assets/icons/arrow.png";
 
 const WeatherForecast = ({ weatherForecast }) => {
     const listWeatherForecast = weatherForecast.list;
@@ -42,7 +43,7 @@ const WeatherForecast = ({ weatherForecast }) => {
                 <img
                     className="w-4 h-4 transform"
                     style={{ transform: `rotate(${forecast.wind.deg}deg)` }}
-                    src="/src/assets/icons/arrow.png"
+                    src={windIcon}
                     alt="wind direction"
                 />
             </div>
