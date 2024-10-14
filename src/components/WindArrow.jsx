@@ -5,7 +5,7 @@ const WindArrow = ({ degree }) => {
     return (
         <div className="relative flex items-center justify-center h-24 w-24">
             <img
-                src="/icons/arrow.png"
+                src="/src/assets/icons/arrow.png"
                 className="absolute w-14 h-14 transform"
                 style={{ transform: `rotate(${degree}deg)` }}
 

@@ -1,3 +1,11 @@
+import sunIcon from './assets/icons/sun.png';
+import cloudIcon from './assets/icons/cloud.png';
+import rainIcon from './assets/icons/rain.png';
+import stormIcon from './assets/icons/storm.png';
+import snowIcon from './assets/icons/snow.png';
+import fogIcon from './assets/icons/fog.png';
+
+
 export const roundNumber = (number) => {
     return Math.round(number);
 }
@@ -6,24 +14,24 @@ export const getIconPath = (icon) => {
 
     switch (icon) {
         case "01d":
-            return "/icons/sun.png";
+            return sunIcon;
         case "02d":
-            return "/icons/cloud.png";
+            return cloudIcon;
         case "03d":
-            return "/icons/cloud.png";
+            return cloudIcon;
         case "04d":
-            return "/icons/cloud.png";
+            return cloudIcon;
         case "09d":
-            return "/icons/rain.png";
+            return rainIcon;
         case "10d":
-            return "/icons/rain.png";
+            return rainIcon;
         case "11d":
-            return "/icons/storm.png";
+            return stormIcon;
         case "13d":
-            return "/icons/snow.png";
+            return snowIcon;
         case "50d":
-            return "/icons/fog.png";
+            return fogIcon;
         default:
-            return "/icons/sun.png";
+            return sunIcon;
     }
 }

@@ -42,7 +42,7 @@ const WeatherForecast = ({ weatherForecast }) => {
                 <img
                     className="w-4 h-4 transform"
                     style={{ transform: `rotate(${forecast.wind.deg}deg)` }}
-                    src="/icons/arrow.png"
+                    src="/src/assets/icons/arrow.png"
                     alt="wind direction"
                 />
             </div>
