@@ -5,8 +5,6 @@ import {roundNumber} from "../utils.js";
 const WeatherForecast = ({ weatherForecast }) => {
     const listWeatherForecast = weatherForecast.list;
 
-    console.log("listWeatherForecast", listWeatherForecast);
-
     // Get today's date and set the time to midnight for accurate comparison
     const today = new Date();
     today.setHours(0, 0, 0, 0);
