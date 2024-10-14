@@ -7,6 +7,7 @@ const WindArrow = ({ degree }) => {
             <img
                 src="/icons/arrow.png"
                 className="absolute w-14 h-14 transform"
+                style={{ transform: `rotate(${degree}deg)` }}
 
             />
             <div className="absolute w-full h-full rounded-full border border-gray-300"></div>
